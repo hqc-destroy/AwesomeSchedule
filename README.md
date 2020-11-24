@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Bước 1: Fork Project về.
+* Bước 2: Clone Prject vừa fork về
+* Bước 3: tạo file .env ```AwesomeSchedule/.env``` <br>
 
-Things you may want to cover:
+Trong ví dụ trong env:
+```ruby
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=12345678
+DATABASE_SOCKET=/var/run/mysqld/mysqld.sock
+# trong ubuntu / mac la khac
 
-* Ruby version
+```
 
-* System dependencies
+* Bước 4: Các lệnh để chạy:
+```ruby
+bundle install 
 
-* Configuration
+yarn install --check-files  
 
-* Database creation
+rake db:create
 
-* Database initialization
+rails db:migrate
 
-* How to run the test suite
+rake db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+rails s
+```
 
-* Deployment instructions
-
-* ...
