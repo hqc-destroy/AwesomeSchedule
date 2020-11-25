@@ -7,7 +7,7 @@
 Trong ví dụ trong env:
 ```ruby
 DATABASE_USERNAME=root
-DATABASE_PASSWORD=12345678
+DATABASE_PASSWORD=123456
 DATABASE_SOCKET=/var/run/mysqld/mysqld.sock
 # trong ubuntu / mac la khac
 
