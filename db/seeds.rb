@@ -26,6 +26,6 @@ end
                   content: content,
                   level: level,
                   status: status,
-                  type_taks: "1"
+                  type_task: "1"
     )
 end
