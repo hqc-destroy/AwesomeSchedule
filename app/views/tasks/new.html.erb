@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+      <h3>新しいタスクを作成する</h3>
+    </div>
+    <div class="row">
+      <%= form_for :task, url: tasks_path do |t| %>
+        <div class="row">
+          <%= t.text_field :tasks, class: "name-h1", placeholder: "タスク名" %>
+        </div>
+        <div class="row" style="margin-left: 3%">
+          <div class="col-md-4 margin-t30">
+            <div class="time">
+              <h4>スタトタイム</h4>
+              <input type="datetime-local" name="task[start_time]">
+            </div>
+          </div>
+          <div class="col-md-4 margin-t30">
+            <div class="time">
+              <h4>デッドライン</h4>
+              <input type="datetime-local" name="task[deadline]">
+            </div>
+          </div>
+          <div class="col-md-4 margin-t30">
+            <div class="time">
+              <h4>エンドタイム</h4>
+              <input type="datetime-local" name="task[end_time]">
+            </div>
+          </div>
+        </div>
+        <div class="row textarea">
+          <textarea name="task[content]" class="work">仕事の内容</textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 margin-t30">
+            <div class="type margin-t30">
+              <h4> レベル </h4>
+              <select name="task[level]">
+                <option value="1">あまり大切じゃない</option>
+                <option value="2">大切</option>
+                <option value="3">とても大切</option>
+              </select>
+            </div>
+            <div class="type margin-t30">
+              <h4>タイプ</h4>
+              <select name="task[type_task]">
+                <option value="1">Housework</option>
+                <option value="2">Person</option>
+                <option value="3">Compan1y</option>
+              </select>
+            </div>
+            <div class="type margin-t30">
+              <h4 style="padding-right: 25px">状態</h4>
+              <select name="task[status]" >
+                <option value="0">Init</option>
+                <option value="1">Doing</option>
+                <option value="2">Finish</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="width: 100%">
+          <div class="col-sm-5"></div>
+          <div class="col-sm-7">
+            <button type="submit" class="btn btn-success btn-lg editpg-btn">作成する</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
