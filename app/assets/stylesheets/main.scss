@@ -1,0 +1,286 @@
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    margin-top: 20px;
+}
+
+a {
+    color: #63a2f1;
+    text-decoration: none;
+}
+
+.task-type-item {
+    margin-right: 40px;
+    padding: 15px 10px 15px 0px;
+    background: aquamarine;
+}
+
+.task-type-item a {
+    padding: 45px;
+    font-size: 25px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.level {
+    padding-left: 0;
+}
+
+.level-item {
+    font-size: 20px;
+}
+
+.month {
+    background-color: #27313e;
+}
+
+.header {
+    font-size: 15px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.header-control {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding-bottom: 2.5px;
+    margin-bottom: 2.5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header-control-month {
+    font-size: 20px;
+}
+
+.header-control-nav {
+    display: flex;
+    margin-left: auto;
+}
+
+.header-nav {
+    padding: 2px;
+    cursor: pointer;
+}
+
+.header-prev {
+    padding-right: 20px;
+}
+
+.header-nav svg {
+    height: 22px;
+    width: 22px;
+    fill: #7e8f9f;
+}
+
+.margin-t30 {
+    margin-top: 30px;
+}
+
+.header-week {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    color: #7e8f9f;
+}
+
+.week {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5px 0;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    color: #fff;
+}
+
+.week--today {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 35px;
+    color: #eee;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    line-height: 16px;
+}
+
+.day--active {
+    background: #80abe9;
+    color: #fff;
+}
+
+.day--otherMonth {
+    opacity: 0.4;
+}
+
+.add-task {
+    width: 200px !important;
+}
+
+.task-list {
+    list-style: none;
+    margin-top: 20px;
+    margin-left: -40px;
+}
+
+.task {
+    font-size: 18px;
+    background: aliceblue;
+    margin-bottom: 20px;
+    width: 70%;
+    padding:12px;
+    margin-left: 10px;
+
+}
+
+.task-type {
+    display: flex;
+}
+
+.type {
+    margin-right: 50px;
+}
+
+/* edit task page  */
+.name-h1 {
+    background: white;
+    padding: 15px;
+    font-size: 24px;
+    margin-top: 3%;
+}
+
+.time {
+    padding: 0;
+    font-size: 20px;
+}
+
+.time-input {
+    height: 40px;
+    border: none;
+    color: #808080;
+    padding: 10px;
+    line-height: 16px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: none;
+    outline: 0;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.work {
+    font-size: 20px;
+    padding: 20px;
+    border: 1px solid aquamarine;
+    height: 250px;
+    width: 100%;
+}
+.type {
+    display: flex;
+}
+
+.type select {
+    font-size: 20px;
+    margin-left: 50px;
+    color: blue;
+    width: 200px;
+}
+
+.editpg-btn {
+    font-size: 20px;
+    width: 200px;
+}
+.header
+{
+    width: 80%;
+    margin-left: 10%;
+    background: #ebedee;
+}
+.container
+{
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+.header i
+{
+    font-size: 30px;
+}
+.uk-text-right
+{
+   padding-top: 3%;
+   margin-right: 15%;
+}
+.fa-user-circle-o
+{
+    padding-right: 10px;
+}
+.footer
+{
+    background: black;
+    color: white;
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+.footer a
+{
+    color: white ;
+}
+.task-list a {
+    padding-left: 10px;
+}
+input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+}
+#search {
+    padding-top: 24px;
+}
+
+.filter {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 50px;
+}
+.list_detail
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 5%;
+}
+
+form
+{
+    width:100%;
+}
+
+.row
+{
+    width:100%;
+}
+
+.textarea
+{
+    margin-left: 2%;
+    width:95%;
+    margin-top: 2%;
+}
+
+.type
+{
+    margin-left: 3%;
+}

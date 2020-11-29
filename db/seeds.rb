@@ -25,6 +25,7 @@ end
                   end_time: end_time,
                   content: content,
                   level: level,
-                  status: status
+                  status: status,
+                  type_taks: "1"
     )
 end
