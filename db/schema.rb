@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_11_26_161742) do
 
-  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "tasks"
     t.datetime "start_time"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_161742) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "job"
