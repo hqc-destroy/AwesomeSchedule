@@ -5,8 +5,13 @@
     </div>
     <div class="uk-text-middle uk-width-1-1@s uk-width-2-3@m uk-visible@m" >
       <div class="uk-text-right">
-        <a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>ログイン | </a>
-        <a href="#"></i>ログアウト</a>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <%= link_to "サインイン　｜", new_user_session_path %>
+          <%= link_to "サインアップ", new_user_registration_path %>
+        <% end %>
       </div>
     </div>
   </div>
