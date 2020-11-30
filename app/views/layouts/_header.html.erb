@@ -6,6 +6,8 @@
     <div class="uk-text-middle uk-width-1-1@s uk-width-2-3@m uk-visible@m" >
       <div class="uk-text-right">
         <% if user_signed_in? %>
+          <%= link_to "プロフィール", edit_user_registration_path, method: :get %>
+          <div></div>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
