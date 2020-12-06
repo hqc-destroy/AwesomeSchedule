@@ -1,0 +1,69 @@
+ <div class="filter">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="search" placeholder="">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2" id="search">
+                <button type="button" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="list_detail">
+        <h3>タスクリスト</h3>　<br><br>
+        <div class="uk-text-left">
+             <% @tasks.each do |task| %>
+                    <ul class="task-list">
+                        <li>
+                            <% if task.status == "0" %>
+                                <input type="checkbox">
+                            <% else %>
+                               <input type="checkbox" checked>
+                            <% end %>
+
+                            <label class="task"><%= link_to task.tasks, task %></label>
+                            <%= link_to edit_task_path task do %>
+                                <button type="button" class="btn btn-warning">Edit</button>
+                            <% end %>
+                            <%= link_to task, method: :delete, data: { confirm: "you_sure" } do %>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title = <%= "delete" %>>Delete</button>
+                            <% end %>
+                        </li>
+                    </ul>
+            <% end %>
+        </div>
+    </div>
