@@ -75,12 +75,24 @@
           <tbody>
             <% @tasks.each do |task| %>
               <% if task.status == "2" %>
-                <tr style="background: #ffffcc">
+                <% if task.level == "3" %>
+                  <tr style="background: #ffffcc;border-left: 8px solid red">
+                <% elsif task.level == "2"%>
+                  <tr style="background: #ffffcc;border-left: 8px solid yellow">
+                <% else %>
+                  <tr style="background: #ffffcc;border-left: 8px solid green">
+                <% end %>
                   <td class="uk-text-bold uk-text-center uk-text-middle">
                     <input type="checkbox" checked>
                   </td>
               <% else %>
-                <tr style="background: #ffcccc">
+                <% if task.level == "3" %>
+                  <tr style="background: #ffcccc;border-left: 8px solid red">
+                <% elsif task.level == "2"%>
+                  <tr style="background: #ffcccc;border-left: 8px solid yellow">
+                <% else %>
+                  <tr style="background: #ffcccc;border-left: 8px solid green">
+                <% end %>
                   <td class="uk-text-bold uk-text-center uk-text-middle">
                     <%= link_to task_path(task, status: "2"), method: :patch, data: { confirm: "完成？" } do %>
                       <input type="checkbox">
