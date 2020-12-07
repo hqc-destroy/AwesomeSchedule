@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   TASKS_PARAMS = %i(user_id tasks start_time end_time deadline content level status type_task).freeze
 
   belongs_to :user
-  scope :day, -> (start_date) {where("Date(start_time) = ?", start_date).order("status ASC")}
+  scope :day, -> (start_date) {where("Date(start_time) = ?", start_date).order("status ASC").order("level DESC").order("start_time ASC").order("type_task ASC")}
   class << self
     def all_task_one_day day
 

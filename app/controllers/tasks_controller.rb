@@ -19,13 +19,13 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find_by id: params[:id]
   end
-  
+
   def update
     if (!(request.referrer&.include? "edit"))
       @task = Task.find_by id: params[:id]
       @task.update_attribute :status, params[:status]
       redirect_to root_path
-    else 
+    else
       @task = Task.find_by id: params[:id]
       if @task.update task_params
         flash[:success] = "Edit success"
@@ -69,10 +69,12 @@ class TasksController < ApplicationController
   def list_tasks
     @q = current_user.tasks.ransack params[:q]
     @all_tasks = @q.result
-    @day = Time.now
     if params[:start_time]!= nil && params[:start_time] != ""
       @all_tasks = @all_tasks.all_task_one_day params[:start_time]
       @day = params[:start_time].to_date()
+    else
+      @day = Time.now
+      @all_tasks = @all_tasks.all_task_one_day @day.to_date().to_s
     end
     @tasks = @all_tasks.page(params[:page]).per(6)
   end

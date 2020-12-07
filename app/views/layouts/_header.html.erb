@@ -11,13 +11,13 @@
                 <%= link_to edit_user_registration_path, method: :get do %>
                 <span style="color: black !important; font-size: large;">
                     <% if current_user.avatar.attached?%>
-                    <%= image_tag current_user.avatar, style: "height:50px;width:50px;border-radius: 50%;" ,alt: "avatar"%>
+                    <%= image_tag current_user.avatar, style: "height:60px;width:60px;border-radius: 50%;" ,alt: "avatar"%>
                     <%end%>
                     <%=  current_user.name %>
                 </span>
                 <% end %>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                <span style="color: black !important; font-size: large;"><i class="fa fa-sign-out" aria-hidden="true" style="color: blue"></i>ログアウト</span>
+                <span style="color: black !important; font-size: large;"><i class="fa fa-sign-out" aria-hidden="true" style="color: blue"></i></span>
                 <% end %>
                 <% else %>
 
