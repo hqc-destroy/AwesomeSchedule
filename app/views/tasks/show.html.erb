@@ -62,9 +62,9 @@
     <div class="col-md-4 margin-t30">
       <div class="time">
         <span style="font-weight: bold;font-size: large;padding-right: 10px">タイプ :</span>
-          <% if @task.type_task == 1 %>
+          <% if @task.type_task == "1" %>
             <button class="btn btn-primary">家族</button>
-          <% elsif @task.type_task == 2%>
+          <% elsif @task.type_task == "2" %>
             <button class="btn btn-warning">個人</button>
           <% else %>
             <button class="btn btn-danger">会社</button>
