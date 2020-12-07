@@ -61,12 +61,13 @@ class TasksController < ApplicationController
 
   def list_tasks
     @q = current_user.tasks.ransack params[:q]
-    @tasks = @q.result
+    @all_tasks = @q.result
     @day = Time.now
     if params[:start_time]!= nil && params[:start_time] != ""
-      @tasks = @tasks.all_task_one_day params[:start_time]
+      @all_tasks = @all_tasks.all_task_one_day params[:start_time]
       @day = params[:start_time].to_date()
     end
+    @tasks = @all_tasks.page(params[:page]).per(6)
 
   end
 
