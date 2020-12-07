@@ -57,15 +57,15 @@
             <div class="type margin-t30">
               <h4>タイプ</h4>
               <select name="task[type_task]">
-                 <% if @task.type_task === "1" %>
+                 <% if @task.type_task == "1" %>
                     <option value="1" selected>Housework</option>
                     <option value="2">Person</option>
                     <option value="3">Company</option>
-                <% elsif @task.type_task === "2"  %>
+                <% elsif @task.type_task == "2"  %>
                     <option value="1">Housework</option>
                     <option value="2" selected>Person</option>
                     <option value="3">Company</option>
-                <% elsif @task.type_task === "3"  %>
+                <% else %>
                     <option value="1">Housework</option>
                     <option value="2">Person</option>
                     <option value="3" selected>Company</option>

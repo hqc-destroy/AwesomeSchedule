@@ -1,13 +1,64 @@
 <% provide :title, ("AWSchedule") %>
-
 <div class="container">
   <div class="uk-text-center" uk-grid>
     <div class="uk-width-1-1@s uk-width-1-3@m">
-      <button type="button" class="btn btn-primary btn-lg btn-block add-task">日付を選択
-      </button>
-      <%= form_with(url: "/task/date", method:"post") do %>
-        <input name="date" type="date" autofocus="" value=<%=Time.now %> onchange="this.form.submit()" style="margin-top:5%; float:left">
+      <button type="button" class="btn btn-warning btn-lg btn-block ">日付 </button>
+      <div class="row" style="border: 2px solid black;margin-left: 0px;padding-bottom: 30px">
+      <div class="row" style="padding-top:50px;padding-bottom: 30px">
+        <h1 style="margin:0px auto;font-weight: bold"><%= @day.strftime("%Y")%>年 <%= @day.strftime("%m")%>月 <%= @day.strftime("%d")%>日</h1>
+      </div>
+      <%= search_form_for @q, class: "form-inline" do |f| %>
+        <div class="row" uk-grid>
+          <div class="uk-width-1-3@m">
+            名前
+          </div>
+          <div class="uk-width-2-3@m">
+            <%= f.search_field :tasks_i_cont, class: "form-control", placeholder: "タスクの名前", style: "width: 90%"%><br>
+          </div>
+        </div>
+
+        <div class="row" uk-grid>
+          <div class="uk-width-1-3@m">
+            日付
+          </div>
+          <div class="uk-width-2-3@m">
+            <input type="date" class="form-control" name="start_time" value= <%= @day %> style= "width:90%">
+          </div>
+        </div>
+        <div class="row" style="padding-top: 20px">
+          <%= f.button :submit, class: "btn btn-primary", style: "margin:0px auto" do %>
+                <i class="fa fa-search" aria-hidden="true" style="font-size: 25px;padding-right: 10px"></i>探す
+          <% end %>
+        </div>
+        <!-- <select name="q[type_task_eq]">
+                <option value="1">家族</option>
+                <option value="2">個人</option>
+                <option value="3">会社</option>
+              </select> -->
+
       <% end %>
+    </div>
+      <div class="uk-text-left" style="padding-top: 3%">
+        <p style="font-size: xx-large;font-weight: bold;padding-top: 3%">タスクの種類</p>
+      </div>
+      <div class="uk-text-left">
+
+        <a href= <%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=1&button=" %> style="padding-left: 8%;font-size: large"><i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i> 家族</a>
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=2&button=" %> style="padding-left: 8%;font-size: large"> <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i> 個人</a>
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=3&button=" %>style="padding-left: 8%;font-size: large"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> 会社</a>
+      </div>
+      <div class="uk-text-left uk-text-bold">
+        <p style="font-size: xx-large;padding-top: 3%">レベル</p>
+      </div>
+      <div class="uk-text-left">
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=1&button=" %> style="padding-left: 8%;font-size: large">とても大切</a>
+      </div>
+      <div class="uk-text-left">
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=2&button=" %>  style="padding-left: 8%;font-size: large">大切</a>
+      </div>
+      <div class="uk-text-left">
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=3&button=" %>  style="padding-left: 8%;font-size: large">あまり大切じゃない</a>
+      </div>
     </div>
     <div class="uk-width-1-1@s uk-width-2-3@m">
       <%= link_to new_task_path,"style"=> "text-decoration:none" do %>
@@ -41,9 +92,9 @@
                 </td>
                 <td class="uk-text-middle"><label class="task"><%= link_to task.tasks, task %></label></td>
                 <td class="uk-text-bold uk-text-center uk-text-middle">
-                  <% if task.type_task == 1 %>
+                  <% if task.type_task == "1" %>
                     <i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i>
-                  <% elsif task.type_task == 2%>
+                  <% elsif task.type_task == "2" %>
                     <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i>
                   <% else %>
                     <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i>
@@ -68,36 +119,4 @@
       </div>
     </div>
   </div>
-  <div class="uk-text-left">
-      <p style="padding-left: 5%;font-size: xx-large;font-weight: bold;padding-top: 3%">タスクの種類</p>
-  </div>
-  <div class="uk-text-center" uk-grid>
-      <div class="uk-width-1-1@s uk-width-1-3@m" >
-        <div class="task-type-item">
-          <a href="#"><i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i> 家族</a>
-        </div>
-      </div>
-      <div class="uk-width-1-1@s uk-width-1-3@m">
-          <div class="task-type-item">
-              <a href="#"> <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i> 個人</a>
-          </div>
-      </div>
-      <div class="uk-width-1-1@s uk-width-1-3@m">
-          <div class="task-type-item" >
-              <a href="#"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> 会社</a>
-          </div>
-      </div>
-  </div>
-  <div class="uk-text-left uk-text-bold">
-    <p style="padding-left: 5%;font-size: xx-large;padding-top: 3%">レベル</p>
-  </div>
-  <div class="uk-text-left">
-      <a href="#" style="padding-left: 8%;font-size: large">とても大切</a>
-  </div>
-  <div class="uk-text-left">
-      <a href="#"  style="padding-left: 8%;font-size: large">大切</a>
-  </div>
-  <div class="uk-text-left">
-      <a href="#"  style="padding-left: 8%;font-size: large">あまり大切じゃない</a>
-  </div>
-    </div>
+</div>

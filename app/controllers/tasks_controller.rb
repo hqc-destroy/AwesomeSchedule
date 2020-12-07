@@ -1,12 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  before_action :list_tasks, only: :index
 
   def index
-    @tasks = current_user.tasks
-
-    return if @tasks
-
-    redirect_to root_path
   end
 
   def new
@@ -62,4 +58,16 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).merge(user_id: current_user.id).permit Task::TASKS_PARAMS
   end
+
+  def list_tasks
+    @q = current_user.tasks.ransack params[:q]
+    @tasks = @q.result
+    @day = Time.now
+    if params[:start_time]!= nil && params[:start_time] != ""
+      @tasks = @tasks.all_task_one_day params[:start_time]
+      @day = params[:start_time].to_date()
+    end
+
+  end
+
 end

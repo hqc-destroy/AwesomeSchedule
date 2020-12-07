@@ -1,101 +1,56 @@
 <% provide :title, ("一日のタスクのすべて") %>
-<div class="filter">
-        <div class="row">
-            <div class="col-lg-10">
-                <div class="form-group">
-                    <label for=""></label>
-                    <input type="text" class="form-control" name="" id="" aria-describedby="search" placeholder="">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2" id="search">
-                <button type="button" class="btn btn-primary">Search</button>
-            </div>
-        </div>
-
-    </div>
-    <div class="list_detail">
-        <h3>タスクリスト</h3>　<br><br>
-        <div class="uk-text-left">
-             <table class="uk-table">
-          <thead>
+<div class="list_detail">
+    <h3>タスクリスト</h3>　<br><br>
+    <div class="uk-text-left">
+         <table class="uk-table">
+      <thead>
+        <tr>
+          <td class="uk-text-bold uk-text-center uk-text-middle">#</td>
+          <td class="uk-text-bold uk-text-center uk-text-middle">名前</td>
+          <td></td>
+          <td class="uk-text-bold uk-text-center"><i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-right: 10px"></i>スタトタイム</td>
+          <td class="uk-text-bold uk-text-center"><i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-right: 10px"></i>デッドライン</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <% if task.status == "0" %>
             <tr>
-              <td class="uk-text-bold uk-text-center uk-text-middle">#</td>
-              <td class="uk-text-bold uk-text-center uk-text-middle">名前</td>
-              <td></td>
-              <td class="uk-text-bold uk-text-center"><i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-right: 10px"></i>スタトタイム</td>
-              <td class="uk-text-bold uk-text-center"><i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-right: 10px"></i>デッドライン</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-            <% @tasks.each do |task| %>
-              <% if task.status == "0" %>
-                <tr>
-                  <td class="uk-text-bold uk-text-center uk-text-middle">
-                    <input type="checkbox">
+              <td class="uk-text-bold uk-text-center uk-text-middle">
+                <input type="checkbox">
+          <% else %>
+            <tr style="background: #ebedee">
+              <td class="uk-text-bold uk-text-center uk-text-middle">
+                <input type="checkbox" checked>
+          <% end %>
+            </td>
+            <td class="uk-text-middle"><label class="task"><%= link_to task.tasks, task %></label></td>
+            <td class="uk-text-bold uk-text-center uk-text-middle">
+              <% if task.type_task == "1" %>
+                <i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i>
+              <% elsif task.type_task == "2"%>
+                <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i>
               <% else %>
-                <tr style="background: #ebedee">
-                  <td class="uk-text-bold uk-text-center uk-text-middle">
-                    <input type="checkbox" checked>
+                <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i>
               <% end %>
-                </td>
-                <td class="uk-text-middle"><label class="task"><%= link_to task.tasks, task %></label></td>
-                <td class="uk-text-bold uk-text-center uk-text-middle">
-                  <% if task.type_task == 1 %>
-                    <i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i>
-                  <% elsif task.type_task == 2%>
-                    <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i>
-                  <% else %>
-                    <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i>
-                  <% end %>
-                </td>
-                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.start_time.to_date() %> <%= task.start_time.strftime("%H:%M") %> </td>
-                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.deadline.to_date() %> <%= task.deadline.strftime("%H:%M") %> </td>
-                <td class="uk-text-middle">
-                  <%= link_to edit_task_path task do %>
-                    <button type="button" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true" style="font-size: 25px"></i></button>
-                  <% end %>
-                </td>
-                <td class="uk-text-middle">
-                  <%= link_to task, method: :delete, data: { confirm: "you_sure" } do %>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title = <%= "delete" %>><i class="fa fa-trash-o" aria-hidden="true" style="font-size: 30px"></i></button>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        </div>
+            </td>
+            <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.start_time.to_date() %> <%= task.start_time.strftime("%H:%M") %> </td>
+            <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.deadline.to_date() %> <%= task.deadline.strftime("%H:%M") %> </td>
+            <td class="uk-text-middle">
+              <%= link_to edit_task_path task do %>
+                <button type="button" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true" style="font-size: 25px"></i></button>
+              <% end %>
+            </td>
+            <td class="uk-text-middle">
+              <%= link_to task, method: :delete, data: { confirm: "you_sure" } do %>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title = <%= "delete" %>><i class="fa fa-trash-o" aria-hidden="true" style="font-size: 30px"></i></button>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     </div>
+</div>
