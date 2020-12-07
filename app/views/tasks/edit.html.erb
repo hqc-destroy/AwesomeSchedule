@@ -82,17 +82,17 @@
           <span style="font-weight: bold;font-size: large;padding-right: 10px">状態 :</span>
           <select name="task[status]" style="height: 40px;width: 50%">
             <% if @task.status === "0" %>
-                    <option value="0" selected>Init</option>
-                    <option value="1">Doing</option>
-                    <option value="2">Finish</option>
+                    <option value="0" selected>イニシャライズ</option>
+                    <option value="1">している</option>
+                    <option value="2">完了</option>
                 <% elsif @task.status === "1"  %>
-                    <option value="0">Init</option>
-                    <option value="1" selected>Doing</option>
-                    <option value="2">Finish</option>
+                    <option value="0">イニシャライズ</option>
+                    <option value="1" selected>している</option>
+                    <option value="2">完了</option>
                 <% elsif @task.status === "2"  %>
-                    <option value="0">Init</option>
-                    <option value="1">Doing</option>
-                    <option value="2" selected>Finish</option>
+                    <option value="0">イニシャライズ</option>
+                    <option value="1">している</option>
+                    <option value="2" selected>完了</option>
                 <% end %>
           </select>
         </div>
