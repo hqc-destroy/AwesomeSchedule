@@ -19,16 +19,23 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find_by id: params[:id]
   end
-
+  
   def update
-    @task = Task.find_by id: params[:id]
-    if @task.update task_params
-      flash[:success] = "Edit success"
-      redirect_to task_path @task
-    else
-      flash.now[:danger] = "edit fail"
-      render :edit
+    if (!(request.referrer&.include? "edit"))
+      @task = Task.find_by id: params[:id]
+      @task.update_attribute :status, params[:status]
+      redirect_to root_path
+    else 
+      @task = Task.find_by id: params[:id]
+      if @task.update task_params
+        flash[:success] = "Edit success"
+        redirect_to task_path @task
+      else
+        flash.now[:danger] = "edit fail"
+        render :edit
+      end
     end
+
   end
 
   def create
@@ -68,7 +75,6 @@ class TasksController < ApplicationController
       @day = params[:start_time].to_date()
     end
     @tasks = @all_tasks.page(params[:page]).per(6)
-
   end
 
 end
