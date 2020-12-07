@@ -27,7 +27,7 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <div class="field">
+      <div class="form-group">
         <%= f.label "パスワード" %> <i>(変更したくない場合は空白のままにします)</i><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
         <% if @minimum_password_length %>
@@ -36,14 +36,19 @@
         <% end %>
       </div>
 
-      <div class="field">
+     <div class="form-group">
         <%= f.label "パスワードの確認" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label "現在のパスワード" %> <i>(変更を確認するには、現在のパスワードが必要です)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :avatar %> <i>(プロファイルをアップロードする)</i> <br/>
+        <%= f.file_field :avatar %><br>
       </div>
 
       <div class="row">
