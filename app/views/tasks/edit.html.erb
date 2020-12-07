@@ -1,45 +1,51 @@
+<% provide :title, ("タスクを編集する") %>
+
+
 <div class="container">
-    <div class="row">
-      <h3>タスクを編集する</h3>
-    </div>
-    <div class="row">
-
-      <%= form_for @task do |t| %>
-        <div class="row">
-          <%= t.text_field :tasks, class: "name-h1", placeholder: "タスク名", value: @task.tasks %>
-        </div>
-        <div class="row" style="margin-left: 3%">
-          <div class="col-md-4 margin-t30">
-            <div class="time">
-              <h4>スタトタイム</h4>
-              <%= t.datetime_field(:start_time,  value: @time_now ) %>
-            </div>
-          </div>
-          <div class="col-md-4 margin-t30">
-            <div class="time">
-              <h4>デッドライン</h4>
-              <%= t.datetime_field(:deadline,  value: @time_now ) %>
-            </div>
-          </div>
-            <div class="time">
-              <% if @task.end_time%>
-                <h4>エンドタイム</h4>
-                <div class="col-md-4 margin-t30">
-                <%= @task.end_time %>
-              <% end %>
+  <div class="row" >
+      <h1 style="color: red; font-weight: bold;text-align: center;margin:0px auto">タスクを編集する</h1>
+  </div>
+  <div class="row" style="padding-left: 5%">
+    <%= form_for @task do |t| %>
+      <div class="row uk-text-large uk-text-middle" style="padding-top: 3%">
+          <span style="font-weight: bold;padding-right: 45px">名前：</span> <%= t.text_field :tasks,style: "width: 80%; height: 50px", placeholder: "タスク名" %>
+      </div>
+      <div class="row" style="padding-top: 20px">
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">スタトタイム <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
+               <%= t.datetime_field(:start_time) %>
             </div>
           </div>
         </div>
-        <div class="row textarea">
-          <textarea name="task[content]" class="work"><%= @task.content %></textarea>
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">デッドライン <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
+              <%= t.datetime_field(:deadline) %>
+            </div>
+          </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-12 margin-t30">
-            <div class="type margin-t30">
-              <h4> レベル </h4>
-              <select name="task[level]">
-                <% if @task.level === "1" %>
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">エンドタイム
+              <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
+              <%= t.datetime_field(:end_time) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <textarea name="task[content]" class="work" style="margin-top: 3%; width: 86%;margin-left: 2%"><%= @task.content %>
+        </textarea>
+      </div>
+      <div class="row" style="margin-top: 3%">
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">レベル :</span>
+          <select name="task[level]" style="height: 40px;width: 50%">
+            <% if @task.level === "1" %>
                     <option value="1" selected>あまり大切じゃない</option>
                     <option value="2">大切</option>
                     <option value="3">とても大切</option>
@@ -52,30 +58,30 @@
                     <option value="2">大切</option>
                     <option value="3" selected>とても大切</option>
                 <% end %>
-              </select>
-            </div>
-            <div class="type margin-t30">
-              <h4>タイプ</h4>
-              <select name="task[type_task]">
-                 <% if @task.type_task == "1" %>
-                    <option value="1" selected>Housework</option>
-                    <option value="2">Person</option>
-                    <option value="3">Company</option>
+          </select>
+        </div>
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">タイプ :</span>
+          <select name="task[type_task]" style="height: 40px;width: 50%">
+            <% if @task.type_task == "1" %>
+                    <option value="1" selected>家族</option>
+                    <option value="2">個人</option>
+                    <option value="3">会社</option>
                 <% elsif @task.type_task == "2"  %>
-                    <option value="1">Housework</option>
-                    <option value="2" selected>Person</option>
-                    <option value="3">Company</option>
+                    <option value="1">家族</option>
+                    <option value="2" selected>個人</option>
+                    <option value="3">会社</option>
                 <% else %>
-                    <option value="1">Housework</option>
-                    <option value="2">Person</option>
-                    <option value="3" selected>Company</option>
+                    <option value="1">家族</option>
+                    <option value="2">個人</option>
+                    <option value="3" selected>会社</option>
                 <% end %>
-              </select>
-            </div>
-            <div class="type margin-t30">
-              <h4 style="padding-right: 25px">状態</h4>
-              <select name="task[status]">
-                <% if @task.status === "0" %>
+          </select>
+        </div>
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">状態 :</span>
+          <select name="task[status]" style="height: 40px;width: 50%">
+            <% if @task.status === "0" %>
                     <option value="0" selected>Init</option>
                     <option value="1">Doing</option>
                     <option value="2">Finish</option>
@@ -88,16 +94,12 @@
                     <option value="1">Doing</option>
                     <option value="2" selected>Finish</option>
                 <% end %>
-              </select>
-            </div>
-          </div>
+          </select>
         </div>
-        <div class="row" style="width: 100%">
-          <div class="col-sm-5"></div>
-          <div class="col-sm-7">
-            <button type="submit" class="btn btn-success btn-lg editpg-btn">編集</button>
-          </div>
-        </div>
-      <% end %>
-    </div>
+      </div>
+      <div class="row" style="width: 100%; margin-top: 3%">
+        <button type="submit" class="btn btn-success btn-lg editpg-btn" style="margin: 0px auto">作成する</button>
+      </div>
+    <% end %>
   </div>
+</div>
