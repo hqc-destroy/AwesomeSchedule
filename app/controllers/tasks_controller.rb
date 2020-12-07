@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks
+
     return if @tasks
 
     redirect_to root_path
