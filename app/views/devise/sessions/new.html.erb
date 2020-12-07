@@ -1,29 +1,29 @@
-<div class="login-form">
+<div class="login-form" style="margin-top:5%">
   <div class="row" style="padding-top: 5%;padding-bottom: 3%">
-    <h2 style="margin: 0px auto; color: #00828C;font-weight: bold"> ログイン </h2>
+    <h1 style="margin: 0px auto; color: #00828C;font-weight: bold"> ログイン </h1>
   </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-      <%= f.label "メールアドレス" %><br />
+      <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px;font-weight: bold;"></i>
+      <%= f.label "メールアドレス",style: "font-size:large;font-weight: bold" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" ,class: "form-control"%>
     </div>
 
     <div class="form-group">
-      <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-      <%= f.label "パスワード" %><br />
+      <i class="fa fa-unlock-alt" aria-hidden="true" style="font-size: 25px;font-weight: bold;"></i>
+      <%= f.label "パスワード",style: "font-size:large;font-weight: bold" %><br />
       <%= f.password_field :password, autocomplete: "current-password" ,class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="form-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label "次回から自動的にログイン" %>
+        <%= f.check_box :remember_me, style: "margin-top:10px" %>
+        <%= f.label "次回から自動的にログイン", style: "color:white;font-size:large;font-weight:bold" %>
       </div>
     <% end %>
     <div class="actions">
       <div class="row">
-        <button type="submit" class="btn btn-success" style="margin: 0px auto">ログイン</button>
+        <button type="submit" class="btn btn-success" style="margin: 0px auto;font-size: large;font-weight: bold;padding: 10px 20px 10px 20px; border-radius: 10px 10px 10px 10px">ログイン</button>
       </div>
     </div>
   <% end %>
