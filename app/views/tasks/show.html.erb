@@ -75,9 +75,9 @@
     <div class="col-md-4 margin-t30">
       <div class="time">
         <span style="font-weight: bold;font-size: large;padding-right: 10px">状態 :</span>
-          <% if @task.status == 0 %>
+          <% if @task.status == "0" %>
             <button class="btn btn-primary">イニシャライズ</button>
-          <% elsif @task.status == 1%>
+          <% elsif @task.status == "1"%>
             <button class="btn btn-warning">している</button>
           <% else %>
             <button class="btn btn-success">完了</button>
