@@ -137,7 +137,7 @@ a {
     font-size: 18px;
     background: aliceblue;
     margin-bottom: 20px;
-    width: 70%;
+    width: 100%;
     padding:12px;
     margin-left: 10px;
 
@@ -229,6 +229,9 @@ a {
 }
 .footer
 {
+    width: 80%;
+    margin-left:10%;
+    float: bottom;
     background: black;
     color: white;
     padding-top:5px;
@@ -280,4 +283,20 @@ form
 .type
 {
     margin-left: 3%;
+}
+
+.login-form
+{
+    width:50%;
+    margin-left:25%;
+    border: 1px solid #c8ccd0;
+    padding: 2% 5% 5% 5%;
+}
+
+.signup-form
+{
+    width:60%;
+    margin-left:20%;
+    border: 1px solid #c8ccd0;
+    padding: 2% 5% 5% 5%;
 }
