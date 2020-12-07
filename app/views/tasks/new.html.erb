@@ -1,66 +1,75 @@
 <% provide :title, ("新しいタスクを作成する") %>
 
 <div class="container">
-    <div class="row">
-      <h3>新しいタスクを作成する</h3>
-    </div>
-    <div class="row">
-      <%= form_for :task, url: tasks_path do |t| %>
-        <div class="row">
-          <%= t.text_field :tasks, class: "name-h1", placeholder: "タスク名" %>
-        </div>
-        <div class="row" style="margin-left: 3%">
-          <div class="col-md-4 margin-t30">
-            <div class="time">
-              <h4>スタトタイム</h4>
+  <div class="row" >
+    <h1 style="color: red; font-weight: bold;text-align: center;margin:0px auto">新しいタスクを作成する</h1>
+  </div>
+  <div class="row" style="padding-left: 5%">
+    <%= form_for :task, url: tasks_path do |t| %>
+      <div class="row uk-text-large uk-text-middle" style="padding-top: 3%">
+        <span style="font-weight: bold;padding-right: 45px">名前：</span> <%= t.text_field :tasks,style: "width: 80%; height: 50px", placeholder: "タスク名" %>
+      </div>
+
+      <div class="row" style="padding-top: 20px">
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">スタトタイム <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
               <input type="datetime-local" name="task[start_time]">
             </div>
           </div>
-          <div class="col-md-4 margin-t30">
-            <div class="time">
-              <h4>デッドライン</h4>
+        </div>
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">デッドライン <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
               <input type="datetime-local" name="task[deadline]">
             </div>
           </div>
         </div>
-        <div class="row textarea">
-          <textarea name="task[content]" class="work">仕事の内容</textarea>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12 margin-t30">
-            <div class="type margin-t30">
-              <h4> レベル </h4>
-              <select name="task[level]">
-                <option value="1">あまり大切じゃない</option>
-                <option value="2">大切</option>
-                <option value="3">とても大切</option>
-              </select>
-            </div>
-            <div class="type margin-t30">
-              <h4>タイプ</h4>
-              <select name="task[type_task]">
-                <option value="1">家族</option>
-                <option value="2">個人</option>
-                <option value="3">会社</option>
-              </select>
-            </div>
-            <div class="type margin-t30">
-              <h4 style="padding-right: 25px">状態</h4>
-              <select name="task[status]" >
-                <option value="0">Init</option>
-                <option value="1">Doing</option>
-                <option value="2">Finish</option>
-              </select>
+        <div class="col-md-4 margin-t30">
+          <div class="time">
+            <h3 style="font-weight: bold">エンドタイム
+              <i class="fa fa-calendar" aria-hidden="true" style="color: blue;font-size:30px;padding-left: 10px"></i> </h3>
+            <div class="row" style="padding-top: 20px;padding-left: 20px">
+              <input type="datetime-local" name="task[end_time]">
             </div>
           </div>
         </div>
-        <div class="row" style="width: 100%">
-          <div class="col-sm-5"></div>
-          <div class="col-sm-7">
-            <button type="submit" class="btn btn-success btn-lg editpg-btn">作成する</button>
-          </div>
+      </div>
+      <div class="row">
+         <textarea name="task[content]" class="work" style="margin-top: 3%; width: 86%;margin-left: 2%">仕事の内容</textarea>
+      </div>
+      <div class="row" style="margin-top: 3%">
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">レベル :</span>
+          <select name="task[level]" style="height: 40px;width: 50%">
+            <option value="1">あまり大切じゃない</option>
+            <option value="2">大切</option>
+            <option value="3">とても大切</option>
+          </select>
         </div>
-      <% end %>
-    </div>
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">タイプ :</span>
+          <select name="task[type_task]" style="height: 40px;width: 50%">
+            <option value="1">家族</option>
+            <option value="2">個人</option>
+            <option value="3">会社</option>
+          </select>
+        </div>
+        <div class="col-md-4 margin-t30">
+          <span style="font-weight: bold;font-size: large;padding-right: 10px">状態 :</span>
+          <select name="task[status]" style="height: 40px;width: 50%">
+            <option value="0">Init</option>
+            <option value="1">Doing</option>
+            <option value="2">Finish</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="width: 100%; margin-top: 3%">
+        <button type="submit" class="btn btn-success btn-lg editpg-btn" style="margin: 0px auto">作成する</button>
+      </div>
+    <% end %>
   </div>
+</div>
+

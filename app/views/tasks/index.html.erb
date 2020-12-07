@@ -30,12 +30,6 @@
                 <i class="fa fa-search" aria-hidden="true" style="font-size: 25px;padding-right: 10px"></i>探す
           <% end %>
         </div>
-        <!-- <select name="q[type_task_eq]">
-                <option value="1">家族</option>
-                <option value="2">個人</option>
-                <option value="3">会社</option>
-              </select> -->
-
       <% end %>
     </div>
       <div class="uk-text-left" style="padding-top: 3%">
@@ -45,7 +39,7 @@
 
         <a href= <%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=1&button=" %> style="padding-left: 8%;font-size: large"><i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i> 家族</a>
         <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=2&button=" %> style="padding-left: 8%;font-size: large"> <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i> 個人</a>
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=3&button=" %>style="padding-left: 8%;font-size: large"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> 会社</a>
+        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=3&button=" %> style="padding-left: 8%;font-size: large"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> 会社</a>
       </div>
       <div class="uk-text-left uk-text-bold">
         <p style="font-size: xx-large;padding-top: 3%">レベル</p>
