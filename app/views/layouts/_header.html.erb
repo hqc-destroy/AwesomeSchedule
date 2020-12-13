@@ -18,6 +18,9 @@
                 <% end %>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                 <span style="color: black !important; font-size: large;"><i class="fa fa-sign-out" aria-hidden="true" style="color: blue"></i></span>
+                    <%= link_to '/notifications' do %>
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    <% end %>
                 <% end %>
                 <% else %>
 
