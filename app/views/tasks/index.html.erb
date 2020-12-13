@@ -25,49 +25,68 @@
               <input type="date" class="form-control" name="start_time" value= <%= @day %> style= "width:90%">
             </div>
           </div>
-          <div class="row" style="padding-top: 20px">
-            <%= f.button :submit, class: "btn btn-primary", style: "margin:0px auto;font-size:large" do %>
-                  <i class="fa fa-search" aria-hidden="true" style="font-size: 25px;padding-right: 10px"></i>探す
-            <% end %>
+
+          <div class="row" uk-grid>
+            <div class="uk-width-1-3" style="font-size: large;font-weight: bold;">
+                種類
+            </div>
+            <div class="uk-width-2-3">
+              <div class="uk-text-left">
+                <a href= <%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=1&button=" %> style="padding-left: 8%;font-size: large;color:black;"><i class="fa fa-home" aria-hidden="true" style="font-size: 30px;;padding-right:10px"></i> 家族</a>
+              </div>
+              <div class="uk-text-left">
+                <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=2&button=" %> style="padding-left: 8%;font-size: large;color:black;"> <i class="fa fa-user" aria-hidden="true" style="font-size: 30px;padding-right:15px"> </i> 個人</a>
+              </div>
+
+            <div class="uk-text-left">
+               <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=3&button=" %> style="padding-left: 8%;font-size: large;color:black;"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px;;padding-right:10px"></i> 会社</a>
+              </div>
+            </div>
+          </div>
+          <div class="row" uk-grid>
+            <div class="uk-width-1-3" style="font-size: large;font-weight: bold;">
+                レベル
+            </div>
+            <div class="uk-width-2-3">
+              <div class="uk-text-left">
+                <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=3&button=" %> style="padding-left: 8%;font-size: medium;color:black">とても大切</a>
+              </div>
+              <div class="uk-text-left">
+                 <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=2&button=" %>  style="padding-left: 8%;font-size: medium;color:black">大切</a>
+              </div>
+
+            <div class="uk-text-left">
+               <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=1&button=" %>  style="padding-left: 8%;font-size: medium;color:black;">あまり大切じゃない</a>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="padding-top: 20px;margin-left: 0px">
+            <button type="submit" class="btn btn-warning" style="margin:0px auto;font-size: medium;width: 80%;margin-left: 10%">探す</button>
+
           </div>
         <% end %>
       </div>
-      <div class="uk-text-left" style="padding-top: 3%">
-        <p style="font-size: xx-large;font-weight: bold;padding-top: 3%">タスクの種類</p>
-      </div>
-      <div class="uk-text-left">
 
-        <a href= <%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=1&button=" %> style="padding-left: 8%;font-size: large;color:red;font-weight:bold"><i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i> 家族</a>
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=2&button=" %> style="padding-left: 8%;font-size: large;color:red;font-weight:bold"> <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i> 個人</a>
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Btype_task_eq%5D=3&button=" %> style="padding-left: 8%;font-size: large;color:red;font-weight:bold"><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> 会社</a>
-      </div>
-      <div class="uk-text-left uk-text-bold">
-        <p style="font-size: xx-large;padding-top: 3%">レベル</p>
-      </div>
-      <div class="uk-text-left">
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=3&button=" %> style="padding-left: 8%;font-size: large;color:yellow;font-weight:bold">とても大切</a>
-      </div>
-      <div class="uk-text-left">
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=2&button=" %>  style="padding-left: 8%;font-size: large;color:yellow;font-weight:bold">大切</a>
-      </div>
-      <div class="uk-text-left">
-        <a href=<%="tasks?q%5Btasks_i_cont%5D=&start_time=#{@day.to_s}&q%5Blevel_eq%5D=1&button=" %>  style="padding-left: 8%;font-size: large;color:yellow;font-weight:bold">あまり大切じゃない</a>
-      </div>
     </div>
     <div class="uk-width-1-1@s uk-width-2-3@m">
-      <%= link_to new_task_path,"style"=> "text-decoration:none" do %>
-        <button type="button" class="btn btn-success btn-block" style="font-size: medium; padding: 10px 10px 10px 10px">新しいタスクを作成
-        </button>
-      <% end %>
+      <div class="uk-text-left">
+        <%= link_to new_task_path,"style"=> "text-decoration:none" do %>
+          <button type="button" class="btn btn-success" style="font-size: medium; padding: 10px 20px 10px 20px">新しいタスクを作成
+          </button>
+        <% end %>
+      </div>
+      <div class="uk-text-center">
+        <h2 style="font-weight: bold;">タスクのリスト</h2>
+      </div>
       <div class="uk-text-left" style="padding-top: 3%">
         <table class="uk-table">
-          <thead>
+          <thead style="background:#ebedee">
             <tr>
-              <td class="uk-text-bold uk-text-center uk-text-middle uk-text-large">#</td>
-              <td class="uk-text-bold uk-text-center uk-text-middle uk-text-large">名前</td>
+              <td class="uk-text-bold uk-text-center uk-text-middle uk-text-medium">#</td>
+              <td class="uk-text-bold uk-text-center uk-text-middle uk-text-medium">名前</td>
               <td></td>
-              <td class="uk-text-bold uk-text-center uk-text-large"></i>スタトタイム</td>
-              <td class="uk-text-bold uk-text-center uk-text-large"></i>デッドライン</td>
+              <td class="uk-text-bold uk-text-center uk-text-medium"></i>スタトタイム</td>
+              <td class="uk-text-bold uk-text-center uk-text-medium"></i>デッドライン</td>
               <td></td>
               <td></td>
             </tr>
