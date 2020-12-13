@@ -1,0 +1,93 @@
+<% provide :title, ("AWSchedule") %>
+<div class="container" style="margin-top: -50px">
+  <div class="uk-text-center" >
+    <div class="uk-width-1-1@s">
+      <div class="uk-text-center">
+        <h2 style="font-weight: bold;">通知のリスト</h2>
+      </div>
+      <div class="uk-text-left" style="padding-top: 3%">
+        <table class="uk-table">
+          <thead style="background:#ebedee">
+            <tr>
+              <td class="uk-text-bold uk-text-center uk-text-middle uk-text-medium">名前</td>
+              <td></td>
+              <td class="uk-text-bold uk-text-center uk-text-medium"></i>スタトタイム</td>
+              <td class="uk-text-bold uk-text-center uk-text-medium"></i>デッドライン</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @task_fails.each do |task| %>
+
+                <% if task.level == "3" %>
+                  <tr style="background: #ffcccc;border-left: 8px solid red">
+                <% elsif task.level == "2"%>
+                  <tr style="background: #ffcccc;border-left: 8px solid yellow">
+                <% else %>
+                  <tr style="background: #ffcccc;border-left: 8px solid green">
+                <% end %>
+
+                <td class="uk-text-middle"><label class="task"><%= link_to task.tasks, task %></label></td>
+                <td class="uk-text-bold uk-text-center uk-text-middle">
+                  <% if task.type_task == "1" %>
+                    <i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i>
+                  <% elsif task.type_task == "2" %>
+                    <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i>
+                  <% else %>
+                    <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i>
+                  <% end %>
+                </td>
+                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.start_time.to_date() %> <%= task.start_time.strftime("%H:%M") %> </td>
+                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.deadline.to_date() %> <%= task.deadline.strftime("%H:%M") %> </td>
+                <td class="uk-text-middle">
+                  <%= link_to edit_task_path task do %>
+                    <button type="button" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px"></i></button>
+                  <% end %>
+                </td>
+                <td class="uk-text-middle">
+                  <%= link_to task, method: :delete, data: { confirm: "確信してるの?" } do %>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title = <%= "delete" %>><i class="fa fa-trash-o" aria-hidden="true" style="font-size: 25px"></i></button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            <% @tasks.each do |task| %>
+                <% if task.level == "3" %>
+                  <tr style="background: #ffffcc;border-left: 8px solid red">
+                <% elsif task.level == "2"%>
+                  <tr style="background: #ffffcc;border-left: 8px solid yellow">
+                <% else %>
+                  <tr style="background: #ffffcc;border-left: 8px solid green">
+                <% end %>
+
+                <td class="uk-text-middle"><label class="task"><%= link_to task.tasks, task %></label></td>
+                <td class="uk-text-bold uk-text-center uk-text-middle">
+                  <% if task.type_task == "1" %>
+                    <i class="fa fa-home" aria-hidden="true" style="font-size: 30px"></i>
+                  <% elsif task.type_task == "2" %>
+                    <i class="fa fa-user" aria-hidden="true" style="font-size: 30px"> </i>
+                  <% else %>
+                    <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i>
+                  <% end %>
+                </td>
+                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.start_time.to_date() %> <%= task.start_time.strftime("%H:%M") %> </td>
+                <td class="uk-text-bold uk-text-center uk-text-middle"><%= task.deadline.to_date() %> <%= task.deadline.strftime("%H:%M") %> </td>
+                <td class="uk-text-middle">
+                  <%= link_to edit_task_path task do %>
+                    <button type="button" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px"></i></button>
+                  <% end %>
+                </td>
+                <td class="uk-text-middle">
+                  <%= link_to task, method: :delete, data: { confirm: "確信してるの?" } do %>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title = <%= "delete" %>><i class="fa fa-trash-o" aria-hidden="true" style="font-size: 25px"></i></button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
