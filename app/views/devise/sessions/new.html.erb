@@ -4,21 +4,21 @@
   </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px;font-weight: bold;"></i>
-      <%= f.label "メールアドレス",style: "font-size:large;font-weight: bold" %><br />
+      <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px;"></i>
+      <%= f.label "メールアドレス",style: "font-size:large;" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" ,class: "form-control"%>
     </div>
 
     <div class="form-group">
-      <i class="fa fa-unlock-alt" aria-hidden="true" style="font-size: 25px;font-weight: bold;"></i>
-      <%= f.label "パスワード",style: "font-size:large;font-weight: bold" %><br />
+      <i class="fa fa-unlock-alt" aria-hidden="true" style="font-size: 25px"></i>
+      <%= f.label "パスワード",style: "font-size:large;" %><br />
       <%= f.password_field :password, autocomplete: "current-password" ,class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="form-group">
         <%= f.check_box :remember_me, style: "margin-top:10px" %>
-        <%= f.label "次回から自動的にログイン", style: "color:white;font-size:large;font-weight:bold" %>
+        <%= f.label "次回から自動的にログイン", style: "color:black;font-size:medium;" %>
       </div>
     <% end %>
     <div class="actions">

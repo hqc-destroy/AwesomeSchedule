@@ -1,9 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 body {
-    background-image: url(/assets/background1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
     min-height: 950px;
 }
 
@@ -290,9 +288,7 @@ form
 
 .login-form
 {
-    background-image: url(/assets/back_login_form.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
     width:50%;
     margin-left:25%;
     border: 1px solid #c8ccd0;
@@ -303,9 +299,7 @@ form
 
 .signup-form
 {
-    background-image: url(/assets/back_login_form.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
     width:60%;
     margin-left:20%;
     border: 1px solid #c8ccd0;
@@ -316,13 +310,9 @@ form
 
 .homepage_search
 {
-    background-image: url(/assets/homepage_search.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
 }
 .detail_task
 {
-    background-image: url(/assets/detail_task_back.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
 }
